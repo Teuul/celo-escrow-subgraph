@@ -1,8 +1,20 @@
-import { Exchanged} from '../generated/Exchange/Exchange';
+import {
+	Transfer,
+	Withdrawal,
+	Revocation
+} from '../generated/Escrow/Escrow';
 import { Event, Field, ArrayField, Item } from '../generated/schema';
-import { log, ethereum } from '@graphprotocol/graph-ts';
+import { ethereum } from '@graphprotocol/graph-ts';
 import { handleEvent } from './utils/utils';
 
-export function handleNewExchange(event: Exchanged): void {
-  handleEvent(event,"Exchanged");
+export function handleTransfer(event: Transfer): void {
+  handleEvent(event,"Transfer");
+}
+
+export function handleWithdrawal(event: Withdrawal): void {
+  handleEvent(event,"Withdrawal");
+}
+
+export function handleRevocation(event: Revocation): void {
+  handleEvent(event,"Revocation");
 }
